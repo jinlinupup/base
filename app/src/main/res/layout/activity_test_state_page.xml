@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_200"
+    tools:context=".TestStatePageActivity">
+
+
+    <FrameLayout
+        android:id="@+id/fl_course_info"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rv_course_chapter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_weight="6">
+
+        <TextView
+            android:id="@+id/tv_test_json"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
+        <Button
+            android:id="@+id/view_course"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="点击调用接口"/>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_course_chapter"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fl_course_info"
+        app:layout_constraintHorizontal_weight="4">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

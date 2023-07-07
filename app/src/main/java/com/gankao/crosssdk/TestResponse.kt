@@ -7,12 +7,7 @@ package com.gankao.crosssdk
  *
  */
 data class TestResponse<T>(
-    var err: Any? = null,
-    var result: ResultBean<T>? = null,
-    var __timestamp: Long? = 0,
-    var __runtime: Int? = 0,
-)
-
-data class ResultBean<T>(
-    var data: T? = null
+    var errorCode: Int? = null,
+    var data: T? = null,
+    var errorMsg: String? = null,
 )

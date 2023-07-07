@@ -6,13 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.camera.view.PreviewView
+        android:id="@+id/pv_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/btnCheckType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="当前为拍照模式 ==》可点击切换"
+        android:onClick="checkType"/>
+    <Button
+        android:id="@+id/btnPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckType"
+        android:text="点击拍照"
+        android:onClick="startPhoto"/>
+    <Button
+        android:id="@+id/btnRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnPhoto"
+        android:text="开始录制"
+        android:visibility="gone"
+        android:onClick="startVideo"/>
+
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="切换摄像头"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecord"
+        android:onClick="checkCamera"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,3 +17,10 @@ dependencyResolutionManagement {
 rootProject.name = "GankaoBase"
 include ':app'
 include ':lib_network'
+include ':lib_common'
+include ':lib_statepage'
+//include ':app_bbbcheck'
+include ':formLib:bbb'
+
+//include ':app_camerax'
+include ':charts'

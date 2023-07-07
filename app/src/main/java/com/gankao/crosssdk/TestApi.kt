@@ -12,12 +12,12 @@ import io.reactivex.Single
  */
 object TestApi: BaseApi<TestApiService>() {
     override fun getApi(): TestApiService {
-        return initApi("")
+        return initApi("https://api.gankao.com/api-aipen/")
     }
 
     // 处理数据
     fun <T> getData(single: Single<TestResponse<T>>, resultCallback: ResultCallback<T?>) {
-        getData(single, { it?.result?.data }, resultCallback)
+        getData(single, { it?.data }, resultCallback)
     }
 
     // 处理数据
@@ -26,7 +26,7 @@ object TestApi: BaseApi<TestApiService>() {
         onSuccess: (T?) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        getData(single, { it?.result?.data }, onSuccess, onError)
+        getData(single, { it?.data }, onSuccess, onError)
     }
 
     // 扩展函数，调用更爽

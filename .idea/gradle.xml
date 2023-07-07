@@ -11,7 +11,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/charts" />
+            <option value="$PROJECT_DIR$/formLib" />
+            <option value="$PROJECT_DIR$/formLib/bbb" />
+            <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/lib_network" />
+            <option value="$PROJECT_DIR$/lib_statepage" />
           </set>
         </option>
       </GradleProjectSettings>

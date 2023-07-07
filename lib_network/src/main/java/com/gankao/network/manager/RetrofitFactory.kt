@@ -1,12 +1,16 @@
 package com.gankao.network.manager
 
+import com.gankao.network.LogUtil
 import com.gankao.network.interceptor.HeaderInterceptor
+import com.gankao.network.interceptor.PLBInterceptor
 import com.hjq.gson.factory.GsonFactory
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 /**
  * @Description TODO
@@ -38,11 +42,17 @@ class RetrofitFactory {
     }
 
     private fun createOkHttpClient(): OkHttpClient {
+
+        val loggingInterceptor = HttpLoggingInterceptor { message -> LogUtil.i("okhttp: $message") }
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+
         val okHttpClient: OkHttpClient = OkHttpClient.Builder()
             .retryOnConnectionFailure(true)
             .connectTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
             .readTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
             .addInterceptor(HeaderInterceptor())
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(PLBInterceptor())
             .build()
         //perHost最大链接数(默认是5)
         okHttpClient.dispatcher.maxRequestsPerHost = 10
